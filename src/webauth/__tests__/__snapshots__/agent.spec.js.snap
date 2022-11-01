@@ -6,10 +6,10 @@ Object {
 }
 `;
 
-exports[`Agent generateRequestParams should fail if native module is not linked 1`] = `[Error: Missing NativeModule. Please make sure you run \`react-native link react-native-azure-ad-auth\`]`;
+exports[`Agent generateRequestParams should fail if native module is not linked 1`] = `[Error: Missing NativeModule. Please make sure you run \`react-native link react-native-ad-azure-auth\`]`;
 
 exports[`Agent show complete web flow should resolve promise with url result 1`] = `"https://developer.microsoft.com/en-us/"`;
 
 exports[`Agent show failed flow should reject with error 1`] = `[Error: failed to load]`;
 
-exports[`Agent show should fail if native module is not linked 1`] = `[Error: Missing NativeModule. Please make sure you run \`react-native link react-native-azure-ad-auth\`]`;
+exports[`Agent show should fail if native module is not linked 1`] = `[Error: Missing NativeModule. Please make sure you run \`react-native link react-native-ad-azure-auth\`]`;

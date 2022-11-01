@@ -1,5 +1,5 @@
 {
-  "name": "react-native-azure-ad-auth",
+  "name": "react-native-ad-azure-auth",
   "version": "1.0.0",
   "description": "An React Native module implements Azure AD V2.0 authentication flow",
   "main": "src/index.js",
@@ -23,9 +23,9 @@
     "oauth2"
   ],
   "repository": {
-    "url": "git+https://github.com/thedarkhorseltd/react-native-azure-ad-auth.git"
+    "url": "git+https://github.com/thedarkhorseltd/react-native-ad-azure-auth.git"
   },
-  "author": "Suresh Konakanchi",
+  "author": "The Dark Horse",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -56,9 +56,9 @@
     "react-native": "0.68.2"
   },
   "bugs": {
-    "url": "https://github.com/thedarkhorseltd/react-native-azure-ad-auth/issues"
+    "url": "https://github.com/thedarkhorseltd/react-native-ad-azure-auth/issues"
   },
-  "homepage": "https://github.com/thedarkhorseltd/react-native-azure-ad-auth#readme",
+  "homepage": "https://github.com/thedarkhorseltd/react-native-ad-azure-auth#readme",
   "directories": {
     "doc": "docs"
   }

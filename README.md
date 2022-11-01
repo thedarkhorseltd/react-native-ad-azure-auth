@@ -1,24 +1,24 @@
-# react-native-azure-ad-auth
+# react-native-ad-azure-auth
 
-[![CircleCI](https://circleci.com/gh/sur950/react-native-azure-ad-auth.svg?style=svg)](https://circleci.com/gh/sur950/react-native-azure-ad-auth)
+[![CircleCI](https://circleci.com/gh/sur950/react-native-ad-azure-auth.svg?style=svg)](https://circleci.com/gh/sur950/react-native-ad-azure-auth)
 
 React Native library implementing Azure AD OAuth2 API
 
 The library uses the latest __V2.0__ version of the [Azure AD endponts](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) and provides token cache functionality.
-`react-native-azure-ad-auth` implements authentication flow using `fetch` API and native components.
+`react-native-ad-azure-auth` implements authentication flow using `fetch` API and native components.
 The OpenID connect and `autorization_code` grant are implemented.
 
 JS Docs can be accesed under <https://vmurin.github.io/react-native-azure-auth/>
 
 ## Installation
 
-Add `react-native-azure-ad-auth` dependency in package.json directly
+Add `react-native-ad-azure-auth` dependency in package.json directly
 
 ```js
-"react-native-azure-ad-auth": "github:sur950/react-native-azure-ad-auth",
+"react-native-ad-azure-auth": "github:sur950/react-native-ad-azure-auth",
 ```
 
-Then you need to link the native modules in `react-native-azure-ad-auth` and used AsyncStorage.
+Then you need to link the native modules in `react-native-ad-azure-auth` and used AsyncStorage.
 Please check the [link](https://reactnative.dev/docs/linking-libraries-ios).
 
 If you have used library before, it could be needed also to unlink the community version of AsyncStorage too.
@@ -187,7 +187,7 @@ For more info please read [react native docs](https://facebook.github.io/react-n
 ## Usage
 
 ```js
-import AzureAuth from 'react-native-azure-ad-auth';
+import AzureAuth from 'react-native-ad-azure-auth';
 
 const azureAuth = new AzureAuth({
     clientId: 'YOUR_CLIENT_ID'
@@ -226,7 +226,7 @@ const azureAuth = new AzureAuth({
 
 ### Usage example
 
-You can consult a tiny sample project [react-native-azure-ad-auth-sample](https://github.com/thedarkhorseltd/react-native-azure-ad-auth-sample) for usage example
+You can consult a tiny sample project [react-native-ad-azure-auth-sample](https://github.com/thedarkhorseltd/react-native-ad-azure-auth-sample) for usage example
 
 ## Issue Reporting
 
