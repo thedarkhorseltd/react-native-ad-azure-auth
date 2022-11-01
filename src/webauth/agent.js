@@ -8,7 +8,7 @@ export default class Agent {
 
     openWeb(url, ephemeralSession = false, closeOnLoad = false) {
         if (!NativeModules.AzureAuth) {
-            return Promise.reject(new Error('Missing NativeModule. Please make sure you run `react-native link rn-azure-ad-auth`'))
+            return Promise.reject(new Error('Missing NativeModule. Please make sure you run `react-native link react-native-azure-ad-auth`'))
         }
 
         return new Promise((resolve, reject) => {
@@ -34,7 +34,7 @@ export default class Agent {
 
     generateRequestParams() {
         if (!NativeModules.AzureAuth) {
-            return Promise.reject(new Error('Missing NativeModule. Please make sure you run `react-native link rn-azure-ad-auth`'))
+            return Promise.reject(new Error('Missing NativeModule. Please make sure you run `react-native link react-native-azure-ad-auth`'))
         }
         /* eslint no-unused-vars:0 */
         return new Promise((resolve, reject) => {
