@@ -2,6 +2,7 @@ interface AuthOptions {
   clientId: string;
   persistentCache: boolean;
   redirectUri: string;
+  claims: string;
 }
 
 interface AzureAuthOptions {
@@ -20,6 +21,7 @@ interface AzureAuthOptions {
    *  Android: {YOUR_APP_PACKAGE_NAME}://{YOUR_APP_PACKAGE_NAME}/android/callback
    */
   redirectUri?: string;
+  claims?: string;
 }
 
 interface ClientOptions {
@@ -199,6 +201,7 @@ declare class Auth {
   client: Client;
   clientId: string;
   redirectUri: string;
+  claims: string;
   /**
    * Try to obtain token silently without user interaction
    *
@@ -253,6 +256,7 @@ declare class Auth {
     state: string;
     scope: string;
     prompt?: string;
+    claims?: string;
   }): string;
   /**
    * Builds the full logout endpoint url in the Authorization Server (AS) with given parameters.
@@ -287,6 +291,7 @@ declare class Auth {
     refreshToken: string;
     scope: string;
     redirectUri?: string;
+    claims?: string;
   }) => Promise<TokenResponse>;
 }
 
@@ -307,6 +312,7 @@ declare class WebAuth {
   authorize(options: {
     prompt?: string;
     scope?: string;
+    claims?: string;
   }): Promise<BaseTokenItem & Partial<AccessTokenItem>>;
   /**
    *  Removes Azure session
