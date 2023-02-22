@@ -113,6 +113,25 @@ export default class WebAuth {
         }
     }
 
+    async authorizeSAML(options = {}) {
+        const {  client, agent } = this
+        const loginUrl =  this.client.authorityUrl
+        let redirectUrl = await agent.openWeb(loginUrl, options.ephemeralSession)
+
+        if (!redirectUrl || !redirectUrl.startsWith(client.redirectUri)) {
+            throw new AuthError({
+                json: {
+                    error: 'aa.redirect_uri.not_expected',
+                    error_description: `Expected ${client.redirectUri} but got ${redirectUrl}`
+                },
+                status: 0
+            })
+        }
+
+        const urlHashParsed = url.parse(redirectUrl).query
+        return urlHashParsed
+    }
+
     
     /**
    *  Removes Azure session using v2.0
@@ -124,8 +143,8 @@ export default class WebAuth {
    *
    * @memberof WebAuth
    */
-     clearSession({ephemeralSession = true, closeOnLoad = true} = {}) {
-        const options = { ephemeralSession, closeOnLoad };
+    clearSession({ephemeralSession = true, closeOnLoad = true} = {}) {
+        const options = { ephemeralSession, closeOnLoad }
         const { client, agent } = this
         const parsedOptions = validate({
             parameters: {
@@ -149,8 +168,8 @@ export default class WebAuth {
    *
    * @memberof WebAuth
    */
-     clearSessionV1({ephemeralSession = true, closeOnLoad = true} = {}) {
-        const options = { ephemeralSession, closeOnLoad };
+    clearSessionV1({ephemeralSession = true, closeOnLoad = true} = {}) {
+        const options = { ephemeralSession, closeOnLoad }
         const { client, agent } = this
         const parsedOptions = validate({
             parameters: {
@@ -160,7 +179,7 @@ export default class WebAuth {
             validate: true // not declared params are NOT allowed:
         }, options)
 
-        const logoutUrl = "https://login.microsoftonline.com/common/oauth2/logout"
+        const logoutUrl = 'https://login.microsoftonline.com/common/oauth2/logout'
         return agent.openWeb(logoutUrl, parsedOptions.ephemeralSession, parsedOptions.closeOnLoad)
     }
 }
