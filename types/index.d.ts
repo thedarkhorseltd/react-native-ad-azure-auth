@@ -314,6 +314,12 @@ declare class WebAuth {
     scope?: string;
     claims?: string;
   }): Promise<BaseTokenItem & Partial<AccessTokenItem>>;
+
+  authorizeSAML(options: {
+    prompt?: string;
+    scope?: string;
+    claims?: string;
+  }): Promise<BaseTokenItem & Partial<AccessTokenItem>>;
   /**
    *  Removes Azure session
    *
