@@ -4,6 +4,7 @@ import AuthError from '../auth/authError'
 import Scope from '../token/scope'
 import BaseTokenItem from '../token/baseTokenItem'
 import { validate } from '../utils/validate'
+import { string } from 'prop-types'
 
 /**
  * Helper to perform Auth against Azure AD login page
@@ -164,22 +165,23 @@ export default class WebAuth {
    * @param {Object} options parameters to send
    * @param {Boolean} [options.ephemeralSession=true] whether to use ephemeral session or not
    * @param {Boolean} [options.closeOnLoad=true] close browser window on 'Loaded' event (works only on iOS)
+   * @param {String} [options.logoutUrl] close browser window on 'Loaded' event (works only on iOS)
    * @returns {Promise}
    *
    * @memberof WebAuth
    */
-    clearSessionV1({ephemeralSession = true, closeOnLoad = true} = {}) {
-        const options = { ephemeralSession, closeOnLoad }
-        const { client, agent } = this
+    clearSessionV1({ephemeralSession = true, closeOnLoad = true, logoutUrl } = {}) {
+        const options = { ephemeralSession, closeOnLoad, logoutUrl}
+        const { agent } = this
         const parsedOptions = validate({
             parameters: {
                 ephemeralSession: { required: true },
                 closeOnLoad: { required: true },
+                logoutUrl: { required: true }
             },
             validate: true // not declared params are NOT allowed:
         }, options)
-
-        const logoutUrl = 'https://login.microsoftonline.com/common/oauth2/logout'
-        return agent.openWeb(logoutUrl, parsedOptions.ephemeralSession, parsedOptions.closeOnLoad)
+        return agent.openWeb(parsedOptions.logoutUrl, parsedOptions.ephemeralSession, parsedOptions.closeOnLoad)
     }
+
 }
