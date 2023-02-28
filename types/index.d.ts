@@ -22,6 +22,7 @@ interface AzureAuthOptions {
    */
   redirectUri?: string;
   claims?: string;
+  SAMLlogoutUrl?: string;  
 }
 
 interface ClientOptions {
@@ -328,7 +329,7 @@ declare class WebAuth {
    * @param {Boolean} [options.closeOnLoad=true] close browser window on 'Loaded' event (works only on iOS)
    */
   clearSession(options?: { ephemeralSession: boolean, closeOnLoad: boolean }): Promise<void>;
-  clearSessionV1(options?: { ephemeralSession: boolean, closeOnLoad: boolean ,logoutUrl :string}): Promise<void>;
+  clearSessionV1(options?: { ephemeralSession: boolean, closeOnLoad: boolean}): Promise<void>;
 }
 
 declare class AzureAuth {

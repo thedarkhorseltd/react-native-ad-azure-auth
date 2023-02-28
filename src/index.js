@@ -26,12 +26,13 @@ export default class AzureAuth {
             validate: false // not declared params are allowed
         }, options)
         
-        const { tenant = 'common', authorityUrl, clientId, redirectUri, persistentCache, ...extras } = options
+        const { tenant = 'common', authorityUrl, clientId, redirectUri, persistentCache,SAMLlogoutUrl, ...extras } = options
         
         this.auth = new Auth({authorityUrl: (authorityUrl ? authorityUrl : `https://login.microsoftonline.com/${tenant}/oauth2/v2.0/`),
             clientId,
             redirectUri,
             persistentCache,
+            SAMLlogoutUrl,
             ...extras})
             
         this.webAuth = new WebAuth(this.auth)

@@ -34,7 +34,7 @@ export default class Auth {
 
 
         this.client = new Client(options)
-        const { clientId, redirectUri, persistentCache } = options
+        const { clientId, redirectUri, persistentCache, SAMLlogoutUrl } = options
         if (!clientId) {
             throw new Error('Missing clientId in parameters')
         }
@@ -42,6 +42,8 @@ export default class Auth {
         this.authorityUrl = this.client.baseUrl
         this.clientId = clientId
         this.redirectUri = redirectUri || defaultRedirectUri
+        this.SAMLlogoutUrl = SAMLlogoutUrl
+
     }
 
     /**
