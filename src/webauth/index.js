@@ -169,10 +169,10 @@ export default class WebAuth {
    *
    * @memberof WebAuth
    */
-    clearSessionV1({ephemeralSession = true, closeOnLoad = true } = {}) {
-        const options = { ephemeralSession, closeOnLoad}
-        const { agent, client } = this
-        const logoutUrl =  client.SAMLlogoutUrl? client.SAMLlogoutUrl :'https://login.microsoftonline.com/common/oauth2/logout'
+    clearSessionV1({ephemeralSession = true, closeOnLoad = true, logoutUrl= null } = {}) {
+        const options = { ephemeralSession, closeOnLoad, logoutUrl}
+        const { agent } = this
+        const userlogoutUrl =  logoutUrl? logoutUrl :'https://login.microsoftonline.com/common/oauth2/logout'
 
         const parsedOptions = validate({
             parameters: {
@@ -181,7 +181,7 @@ export default class WebAuth {
             },
             validate: true // not declared params are NOT allowed:
         }, options)
-        return agent.openWeb(logoutUrl, parsedOptions.ephemeralSession, parsedOptions.closeOnLoad)
+        return agent.openWeb(userlogoutUrl, parsedOptions.ephemeralSession, parsedOptions.closeOnLoad)
     }
 
 }
